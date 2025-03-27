@@ -21,7 +21,10 @@ class HomeResponse(pydantic.BaseModel):
 def home_page():
     return {"message":"hello user"}
 
+class AIRequest(pydantic.BaseModel):
+    message: str
+
 @app.post('/ai')
-def handle_message_ai(message:str):
-    result = ai.message_ai(message)
-    return {"message":result}
+def handle_message_ai(request: AIRequest):
+    result = ai.message_ai(request.message)
+    return {"message": result}
