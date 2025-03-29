@@ -5,7 +5,7 @@ from google.genai import types
 client = genai.Client(api_key='AIzaSyBYyg0J1-3xdtXMlrPIF4bhTF2VgrKE4ZM')
 
 
-def message_ai(question:str):
+def message_ai(question:str |list[str]):
     response = client.models.generate_content(
             config=types.GenerateContentConfig(
                   

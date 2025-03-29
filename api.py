@@ -22,7 +22,7 @@ def home_page():
     return {"message":"hello user"}
 
 class AIRequest(pydantic.BaseModel):
-    message: str
+    message: str | list[str]
 
 @app.post('/ai')
 def handle_message_ai(request: AIRequest):
